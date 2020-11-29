@@ -16,13 +16,13 @@ function App(): JSX.Element {
             <div className="application-container">
                 <BrowserRouter>
                     <Switch>
+                        <Route path={PATH.store} component={pages.Store} />
                         <Route path={PATH.join} component={pages.Join} />
                         <Route path={PATH.list} component={pages.List} />
                         <Route path={PATH.login} component={pages.Login} />
                         <Route path={PATH.main} component={pages.Main} />
                         <Route path={PATH.mypage} component={pages.MyPage} />
                         <Route path={PATH.report} component={pages.Report} />
-                        <Route path={PATH.store} component={pages.Store} />
                     </Switch>
                 </BrowserRouter>
             </div>

@@ -21,6 +21,6 @@
     "jsx": "react"
   },
   "include": [
-    "src", "src/pages/Main.tsx"
+    "src"
   ]
 }

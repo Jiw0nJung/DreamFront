@@ -1,39 +1,14 @@
-$highlight-text-color: map-get($colors, 'gradient-footer');
 $underline: map-get($colors, 'primary-purple');
-$background-color: map-get($colors, 'white');
+$background-color: map-get($colors, 'gradient-footer');
 
 .header-container {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 2;
-    background-color: $background-color;
+    z-index: 1;
+    background-image: $background-color;
     justify-content: space-between;
     align-items: center;
-    padding: 30px;
-    display: grid;
-    grid-template-columns: 8fr 2fr;
-
-    & > img {
-        margin-left: 350px;
-    }
-
-    & .menu-wrapper {
-        float: right;
-
-        & .menu-button {
-            font-size: 16px;
-            @include custom-button-basic();
-        }
-
-        & .menu-button:hover {
-            background: $highlight-text-color;
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            border-bottom: 2px solid $underline;
-            transition: all 0.3s ease;
-        }
-    }
+    padding: 10px;
 }

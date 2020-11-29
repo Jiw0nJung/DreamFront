@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 
 import { useLoginState } from '../modules/hook';
 
-import Header from '../components/Header';
+import Header from '../components/MainHeader';
 import Menu from '../components/Menu';
 import List from '../components/List';
 import PATH from '../constants/path';
