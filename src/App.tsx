@@ -1,26 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import PATH from './constants/path';
+
+import Footer from './components/Footer';
+
+import * as pages from './pages';
+
+import './styles/main.scss';
+
+function App(): JSX.Element {
+    return (
+        <div className="App">
+            <pages.Loading />
+            <div className="application-container">
+                <BrowserRouter>
+                    <Switch>
+                        <Route path={PATH.join} component={pages.Join} />
+                        <Route path={PATH.list} component={pages.List} />
+                        <Route path={PATH.login} component={pages.Login} />
+                        <Route path={PATH.main} component={pages.Main} />
+                        <Route path={PATH.mypage} component={pages.MyPage} />
+                        <Route path={PATH.report} component={pages.Report} />
+                        <Route path={PATH.store} component={pages.Store} />
+                    </Switch>
+                </BrowserRouter>
+            </div>
+            <Footer />
+        </div>
+    );
 }
 
 export default App;

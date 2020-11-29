@@ -1,0 +1,9 @@
+.footer-container {
+    color: map-get($colors, 'white');
+    height: 88px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: map-get($colors, 'gradient-footer');
+}

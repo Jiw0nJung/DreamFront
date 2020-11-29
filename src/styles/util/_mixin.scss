@@ -1,0 +1,29 @@
+@mixin placeholder-letter-space() {
+    &::-webkit-input-placeholder {
+        /* WebKit, Blink, Edge */
+        letter-spacing: 0px;
+    }
+    &:-moz-placeholder {
+        /* Mozilla Firefox 4 to 18 */
+        letter-spacing: 0px;
+        opacity: 1;
+    }
+    &::-moz-placeholder {
+        /* Mozilla Firefox 19+ */
+        letter-spacing: 0px;
+        opacity: 1;
+    }
+    &:-ms-input-placeholder {
+        /* Internet Explorer 10-11 */
+        letter-spacing: 0px;
+    }
+}
+
+@mixin custom-button-basic() {
+    border: none;
+    outline: none;
+    margin: 10px;
+    background-color: transparent;
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+}
