@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { RouteChildrenProps } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 
-import { useLoginState } from '../modules/hook';
+import { useUserState } from '../modules/hook';
 
 import Header from '../components/MainHeader';
 import Menu from '../components/Menu';
@@ -10,7 +10,7 @@ import List from '../components/List';
 import PATH from '../constants/path';
 
 export default function Main({ history }: RouteChildrenProps): JSX.Element {
-    const { isLogined, Logout } = useLoginState();
+    const { isLogined, Logout } = useUserState();
 
     const redirectMain = useCallback(() => {
         history.push(PATH.main);
