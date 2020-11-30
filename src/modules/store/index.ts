@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable @typescript-eslint/no-var-requires */
 import { createStore, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 
@@ -36,7 +38,6 @@ export default function configureStore() {
     // hot-reloading에서 Store가 다시 만들어지는 것을 방지
     if (module.hot) {
         module.hot.accept('../reducer', () =>
-            // eslint-disable-next-line global-require
             store.replaceReducer(require('../reducer').default),
         );
     }

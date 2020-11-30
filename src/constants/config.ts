@@ -34,6 +34,12 @@ const apiServerLoginUrl: ConfigType = {
     [TEST_MODE]: '/login',
 };
 
+const apiServeEmailCheckUrl: ConfigType = {
+    [DEV_MODE]: '/emailCheck',
+    [PROD_MODE]: '/emailCheck',
+    [TEST_MODE]: '/emailCheck',
+};
+
 const apiServerUserUrl: ConfigType = {
     [DEV_MODE]: '/user',
     [PROD_MODE]: '/user',
@@ -62,7 +68,9 @@ export const MODE = process.env.NODE_ENV || mode;
 export const LOGIN_SESSION_KEY = loginSessionKey[MODE];
 export const HOST = host[MODE];
 export const API_SERVER_HOST = apiServerHost[MODE];
-export const API_LOGIN_URL = apiServerHost[MODE] + +apiServerLoginUrl[MODE];
+export const API_LOGIN_URL = apiServerHost[MODE] + apiServerLoginUrl[MODE];
+export const API_EMAILCHECK_URL =
+    apiServerHost[MODE] + apiServerLoginUrl[MODE] + apiServeEmailCheckUrl[MODE];
 export const API_USER_URL = apiServerHost[MODE] + +apiServerUserUrl[MODE];
 export const API_USER_REPORT_URL =
     apiServerHost[MODE] + apiServerUsersReportUrl[MODE];

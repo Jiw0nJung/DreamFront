@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import axios from 'axios';
 
 import { API_LOGIN_URL } from '../../constants/config';
@@ -8,8 +9,8 @@ export interface LoginResponse {
     token: string;
 }
 
-export default function loginHandler(id: string, password: string) {
-    const data = { id, password };
+export default function loginHandler(email: string, password: string) {
+    const data = { email, password };
 
     return axios
         .post<ServerResponse>(API_LOGIN_URL, data)

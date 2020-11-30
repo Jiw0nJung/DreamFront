@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useCallback } from 'react';
+import PATH from '../../constants/path';
 
 export default function Header(): JSX.Element {
+    const redirectMain = useCallback(() => {
+        document.location.href = PATH.main;
+    }, [history]);
+
     return (
         <div className="header-container">
             <img
-                alt="dream-logo"
-                srcSet="/image/dream-logo.png"
-                width="100px"
+                alt="dream-logo-white"
+                srcSet="/image/dream-logo-white.png"
+                width="100rem"
+                onClick={redirectMain}
             />
         </div>
     );

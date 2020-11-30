@@ -23,6 +23,10 @@ export const LOGIN_ERROR: HandlingCase = {
     40100: '아이디 혹은 비밀번호가 정확하지 않습니다.',
 };
 
+export const JOIN_ERROR: HandlingCase = {
+    40100: '회원가입 실패다.',
+};
+
 export const STATE_ERROR: HandlingCase = {};
 
 export const VERIFY_ERROR: HandlingCase = {

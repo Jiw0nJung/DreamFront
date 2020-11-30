@@ -10,21 +10,20 @@ $text-color: map-get($colors, 'white');
         display: inline-block;
         cursor: pointer;
         font-weight: bold;
-        font-size: 24px;
-        border-radius: 12px;
-        padding: 24px;
-        padding-bottom: 36px;
-        width: 200px;
-        margin: 100px 50px;
+        font-size: 1.5rem;
+        border-radius: 2rem;
+        padding: 3rem;
+        width: 12rem;
+        margin: 12rem 4rem;
 
         & > img {
-            height: 80px;
-            margin-bottom: 10px;
+            height: 5rem;
+            margin-bottom: 1rem;
         }
 
         & > p {
             color: $text-color;
-            border-bottom: 2px solid $text-color;
+            border-bottom: 0.2rem solid $text-color;
         }
     }
     & .move-container.house {

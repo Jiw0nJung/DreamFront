@@ -11,19 +11,19 @@ $background-color: map-get($colors, 'white');
     background-color: $background-color;
     justify-content: space-between;
     align-items: center;
-    padding: 30px;
+    padding: 1rem;
     display: grid;
     grid-template-columns: 8fr 2fr;
 
     & > img {
-        margin-left: 350px;
+        margin-left: 4rem;
     }
 
     & .menu-wrapper {
         float: right;
 
         & .menu-button {
-            font-size: 16px;
+            font-size: 1rem;
             @include custom-button-basic();
         }
 

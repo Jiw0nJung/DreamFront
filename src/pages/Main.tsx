@@ -12,6 +12,10 @@ import PATH from '../constants/path';
 export default function Main({ history }: RouteChildrenProps): JSX.Element {
     const { isLogined, Logout } = useLoginState();
 
+    const redirectMain = useCallback(() => {
+        history.push(PATH.main);
+    }, [history]);
+
     const redirectMyPage = useCallback(() => {
         if (isLogined) history.push(PATH.mypage);
         else history.push(PATH.login);
@@ -27,11 +31,12 @@ export default function Main({ history }: RouteChildrenProps): JSX.Element {
     return (
         <>
             <Helmet>
-                <title>Dream</title>
+                <title>꿈</title>
             </Helmet>
             <Header
                 isLogined={isLogined}
                 Logout={Logout}
+                redirectMain={redirectMain}
                 redirectMyPage={redirectMyPage}
                 redirectLogin={redirectLogin}
                 redirectJoin={redirectJoin}

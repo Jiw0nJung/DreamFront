@@ -3,6 +3,7 @@ import React, { useMemo } from 'react';
 interface HeaderProps {
     isLogined: boolean;
     Logout: () => void;
+    redirectMain: () => void;
     redirectJoin: () => void;
     redirectLogin: () => void;
     redirectMyPage: () => void;
@@ -10,6 +11,7 @@ interface HeaderProps {
 export default function MainHeader({
     isLogined,
     Logout,
+    redirectMain,
     redirectJoin,
     redirectLogin,
     redirectMyPage,
@@ -56,7 +58,8 @@ export default function MainHeader({
             <img
                 alt="dream-logo"
                 srcSet="/image/dream-logo.png"
-                width="100px"
+                width="100rem"
+                onClick={redirectMain}
             />
             {menu}
         </div>
