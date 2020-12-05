@@ -27,6 +27,10 @@ export const JOIN_ERROR: HandlingCase = {
     40100: '회원가입 실패다.',
 };
 
+export const REPORT_ERROR: HandlingCase = {
+    40100: '글작성 실패다.',
+};
+
 export const STATE_ERROR: HandlingCase = {};
 
 export const VERIFY_ERROR: HandlingCase = {

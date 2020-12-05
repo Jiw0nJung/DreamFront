@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 

@@ -3,7 +3,7 @@ import { LOGIN_SESSION_KEY } from '../../constants/config';
 /**
  * @description Session Storage에 data를 저장합니다.
  */
-function saveSessionStorage(key: string, data: string | object) {
+function saveSessionStorage(key: string, data: string) {
     const item = JSON.stringify(data);
     window.sessionStorage.setItem(key, item);
 }
