@@ -2,6 +2,8 @@ import React, { useCallback, useEffect, useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useUserState, useAppState } from '../modules/hook';
 
+import DaumPostcode from 'react-daum-postcode';
+
 export default function Join(): JSX.Element {
     const {
         state: userState,
@@ -69,6 +71,31 @@ export default function Join(): JSX.Element {
             setSchool(event.target.value),
         [setSchool],
     );
+
+    const handleComplete = (data: {
+        address: string;
+        addressType: string;
+        bname: string;
+        buildingName: string;
+    }) => {
+        let fullAddress = data.address;
+        let extraAddress = '';
+
+        if (data.addressType === 'R') {
+            if (data.bname !== '') {
+                extraAddress += data.bname;
+            }
+            if (data.buildingName !== '') {
+                extraAddress +=
+                    extraAddress !== ''
+                        ? `, ${data.buildingName}`
+                        : data.buildingName;
+            }
+            fullAddress += extraAddress !== '' ? ` (${extraAddress})` : '';
+        }
+
+        console.log(fullAddress); // e.g. '서울 성동구 왕십리로2길 20 (성수동1가)'
+    };
 
     /**
      * @description Address 값을 변경합니다.
@@ -188,6 +215,7 @@ export default function Join(): JSX.Element {
                     onChange={onChangePwChkValue}
                     value={userState.password}
                 />
+                <DaumPostcode onComplete={handleComplete} autoClose={true} />
                 <input
                     className="field address"
                     placeholder="주소"
