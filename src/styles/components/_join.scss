@@ -1,0 +1,96 @@
+$text-color: map-get($colors, 'white');
+
+.join-container {
+    width: 100%;
+    height: 615px;
+    background-color: #eaeaea;
+}
+.join-box {
+    width: 442px;
+    height: 615px;
+    background-color: #eaeaea;
+    display: inline-block;
+}
+.join-inbox {
+    width: 380px;
+    display: inline-block;
+    padding-top: 20px;
+}
+p {
+    text-align: left;
+    width: 100%;
+    font-weight: bold;
+    font-size: 12px;
+    letter-spacing: 20;
+    padding-bottom: 5px;
+}
+.join-inbox-1,
+.join-inbox-2-1,
+.join-inbox-2-2 {
+    display: inline-block;
+    padding-top: 20px;
+}
+.join-inbox-1 {
+    width: 380px;
+}
+.join-inbox-2-1,
+.join-inbox-2-2 {
+    width: 180px;
+    text-align: left;
+}
+.join-inbox-2-2 {
+    margin-left: 20px;
+}
+
+.join-container input[type='text'],
+.join-container input[type='password'] {
+    padding-left: 10px;
+    height: 26px;
+    border-radius: 15px;
+    border: 1px solid gray;
+    width: calc(100% - 10px);
+    margin-bottom: 5px;
+}
+
+.mergeInput button {
+    font-size: 12px;
+    width: 70px;
+    height: 26px;
+    border-radius: 15px;
+    border: 1px solid gray;
+    background-color: white;
+    float: right;
+}
+
+.mergeInput {
+    height: 26px;
+    border-radius: 15px;
+    border: 1px solid gray;
+    width: 100%;
+    background-color: white;
+}
+.mergeInput input[type='text'] {
+    border: none;
+    width: 295px;
+    float: left;
+}
+.join-inbox-3 {
+    padding-top: 30px;
+}
+.join-inbox-3 button {
+    border: 1px solid gray;
+    border-radius: 0px;
+    margin: 15px;
+    width: 115px;
+    height: 26px;
+    font-size: 15px;
+    padding: 0px;
+}
+.join-inbox-3 button:nth-child(1) {
+    background-color: #1c1a62;
+    color: white;
+}
+.join-inbox-3 button:nth-child(2) {
+    background-color: white;
+    color: black;
+}

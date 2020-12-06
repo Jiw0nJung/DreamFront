@@ -159,82 +159,139 @@ export default function Join(): JSX.Element {
                 <title>회원가입</title>
             </Helmet>
             <div className="join-container">
-                <input
-                    className="field name"
-                    placeholder="이름"
-                    type="text"
-                    onChange={onChangeUsernameValue}
-                    value={userState.user_name}
-                />
-                <input
-                    className="field school"
-                    placeholder="학교"
-                    type="text"
-                    onChange={onChangeSchoolValue}
-                    value={userState.school}
-                />
-                <input
-                    className="field birth"
-                    placeholder="생년월일"
-                    type="text"
-                    onChange={onChangeBirthValue}
-                    value={userState.birth}
-                />
-                <input
-                    className="field phone"
-                    placeholder="휴대전화"
-                    type="text"
-                    onChange={onChangePhoneValue}
-                    value={userState.phone}
-                />
-                <input
-                    className="field email"
-                    placeholder="이메일"
-                    type="text"
-                    onChange={onChangeEmailValue}
-                    value={userState.email}
-                />
-                <button
-                    className="button"
-                    type="button"
-                    onClick={callEmailCheckApi}
-                >
-                    이메일 확인
-                </button>
-                <input
-                    className="field password"
-                    placeholder="비밀번호"
-                    type="password"
-                    onChange={onChangePasswordValue}
-                    value={userState.password}
-                />
-                <input
-                    className="field pwcheck"
-                    placeholder="비밀번호 확인"
-                    type="password"
-                    onChange={onChangePwChkValue}
-                    value={userState.password}
-                />
-                <DaumPostcode onComplete={handleComplete} autoClose={true} />
-                <input
-                    className="field address"
-                    placeholder="주소"
-                    type="text"
-                    onChange={onChangeAddressValue}
-                    value={userState.address}
-                    onKeyPress={joinEnterFunc}
-                />
-                <button
-                    className="button"
-                    type="button"
-                    onClick={callUserApi}
-                    disabled={!activateButton}
-                >
-                    가입하기
-                </button>
-                <button className="button" type="button" onClick={callUserApi}>
-                    취소
-                </button>
+                <div className="join-box">
+                    <div className="join-inbox">
+                        <div className="join-inbox-1">
+                            <p>이름</p>
+                            <input
+                                className="field name"
+                                placeholder="이름"
+                                type="text"
+                                onChange={onChangeUsernameValue}
+                                value={userState.user_name}
+                            />
+                        </div>
+                        <div className="join-inbox-2-1">
+                            <p>학교</p>
+                            <input
+                                className="field school"
+                                placeholder="학교"
+                                type="text"
+                                onChange={onChangeSchoolValue}
+                                value={userState.school}
+                            />
+                        </div>
+                        <div className="join-inbox-2-2">
+                            <p>생년월일</p>
+                            <input
+                                className="field birth"
+                                placeholder="생년월일"
+                                type="text"
+                                onChange={onChangeBirthValue}
+                                value={userState.birth}
+                            />
+                        </div>
+                        <div className="join-inbox-1">
+                            <p>휴대폰번호</p>
+                            <div className="mergeInput">
+                                <input
+                                    className="field phone"
+                                    placeholder="휴대전화"
+                                    type="text"
+                                    onChange={onChangePhoneValue}
+                                    value={userState.phone}
+                                />
+                                <button
+                                    className="button"
+                                    type="button"
+                                    onClick={callEmailCheckApi}
+                                >
+                                    본인 인증
+                                </button>
+                            </div>
+                        </div>
+                        <div className="join-inbox-1">
+                            <p>이메일</p>
+                            <div className="mergeInput">
+                                <input
+                                    className="field email"
+                                    placeholder="이메일"
+                                    type="text"
+                                    onChange={onChangeEmailValue}
+                                    value={userState.email}
+                                />
+                                <button
+                                    className="button"
+                                    type="button"
+                                    onClick={callEmailCheckApi}
+                                >
+                                    이메일 확인
+                                </button>
+                            </div>
+                        </div>
+                        <div className="join-inbox-2-1">
+                            <p>비밀번호</p>
+                            <input
+                                className="field password"
+                                placeholder="비밀번호"
+                                type="password"
+                                onChange={onChangePasswordValue}
+                                value={userState.password}
+                            />
+                        </div>
+                        <div className="join-inbox-2-2">
+                            <p>비밀번호확인</p>
+                            <input
+                                className="field pwcheck"
+                                placeholder="비밀번호 확인"
+                                type="password"
+                                onChange={onChangePwChkValue}
+                                value={userState.password}
+                            />
+                        </div>
+                        <div className="join-inbox-1">
+                            <p>주소</p>
+                            <div className="mergeInput">
+                                <input
+                                    className="field address"
+                                    placeholder="주소"
+                                    type="text"
+                                    onChange={onChangeAddressValue}
+                                    value={userState.address}
+                                    onKeyPress={loginEnterFunc}
+                                />
+                                <button
+                                    className="button"
+                                    type="button"
+                                    onClick={callEmailCheckApi}
+                                >
+                                    주소 확인
+                                </button>
+                            </div>
+                            <input
+                                className="field address"
+                                placeholder="상세 주소"
+                                type="text"
+                                onChange={onChangeAddressValue}
+                                value={userState.address}
+                                onKeyPress={loginEnterFunc}
+                            />
+                        </div>
+                        <div className="join-inbox-3">
+                            <button
+                                className="button"
+                                type="button"
+                                onClick={callUserApi}
+                                disabled={!activateButton}
+                            >
+                                가입하기
+                            </button>
+                            <button className="button" type="button">
+                                취소
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </>
     );

@@ -1,3 +1,4 @@
+import { check } from 'prettier';
 import React, { useMemo, useEffect, useCallback } from 'react';
 import { Helmet } from 'react-helmet-async';
 
@@ -58,29 +59,52 @@ export default function Login(): JSX.Element {
                 <title>로그인</title>
             </Helmet>
             <div className="login-container">
-                <input
-                    className="field email"
-                    placeholder="이메일"
-                    type="text"
-                    onChange={onChangeEmailValue}
-                    value={userState.email}
-                />
-                <input
-                    className="field pw"
-                    placeholder="패스워드"
-                    type="password"
-                    onChange={onChangePasswordValue}
-                    value={userState.password}
-                    onKeyPress={loginEnterFunc}
-                />
-                <button
-                    className="button"
-                    type="button"
-                    onClick={callLoginApi}
-                    disabled={!activateButton}
-                >
-                    로그인
-                </button>
+                <div className="login-box1">
+                    <div className="login-logo1">
+                        <img
+                            alt="dream-logo-white"
+                            srcSet="/image/dream-logo.png"
+                            height="230px"
+                        />
+                    </div>
+                    <div className="login-box2">
+                        <div className="login-box2-login-img">
+                            <div className="img1">로그인</div>
+                        </div>
+                        <div className="login-box2-login-form">
+                            <p>이메일</p>
+                            <input
+                                className="field email"
+                                placeholder="이메일"
+                                type="text"
+                                onChange={onChangeEmailValue}
+                                value={userState.email}
+                            />
+                            <p>비밀번호</p>
+                            <input
+                                className="field pw"
+                                placeholder="패스워드"
+                                type="password"
+                                onChange={onChangePasswordValue}
+                                value={userState.password}
+                                onKeyPress={loginEnterFunc}
+                            />
+                            <div className="chk_keep_login">
+                                <input type="checkbox" />
+                                <span> 로그인 유지</span>
+                            </div>
+                            <button
+                                className="btn_login"
+                                type="button"
+                                onClick={callLoginApi}
+                                disabled={!activateButton}
+                            >
+                                로그인
+                            </button>
+                            <hr></hr>
+                        </div>
+                    </div>
+                </div>
             </div>
         </>
     );

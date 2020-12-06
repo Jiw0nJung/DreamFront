@@ -11,7 +11,7 @@ export default function Header(): JSX.Element {
             <img
                 alt="dream-logo-white"
                 srcSet="/image/dream-logo-white.png"
-                width="100rem"
+                height="70px"
                 onClick={redirectMain}
             />
         </div>
