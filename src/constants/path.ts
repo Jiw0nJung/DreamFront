@@ -8,6 +8,7 @@ export const PATH = {
     mypage: '/mypage',
     store: '/store',
     report: `/report/:${REPORT_ID}`,
+    writereport: `/writereport`,
 };
 
 export default PATH;
