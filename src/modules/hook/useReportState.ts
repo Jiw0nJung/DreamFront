@@ -29,10 +29,26 @@ export default function useReportState() {
     );
 
     /**
-     * @description Image 값 설정
+     * @description Image1 값 설정
      */
-    const setImage = useCallback(
-        (image: string) => dispatch(reportAction.setImage(image)),
+    const setImage1 = useCallback(
+        (image1: string) => dispatch(reportAction.setImage1(image1)),
+        [dispatch],
+    );
+
+    /**
+     * @description Image2 값 설정
+     */
+    const setImage2 = useCallback(
+        (image2: string) => dispatch(reportAction.setImage2(image2)),
+        [dispatch],
+    );
+
+    /**
+     * @description Image1 값 설정
+     */
+    const setImage3 = useCallback(
+        (image3: string) => dispatch(reportAction.setImage3(image3)),
         [dispatch],
     );
 
@@ -68,7 +84,9 @@ export default function useReportState() {
         state: report,
         setTitle,
         setContent,
-        setImage,
+        setImage1,
+        setImage2,
+        setImage3,
         setCategory,
         setProcess,
         callReportApi,

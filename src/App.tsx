@@ -19,9 +19,13 @@ function App(): JSX.Element {
                     <Route path={PATH.join} component={pages.Join} />
                     <Route path={PATH.list} component={pages.List} />
                     <Route path={PATH.login} component={pages.Login} />
-                    <Route path={PATH.main} component={pages.Main} />
                     <Route path={PATH.mypage} component={pages.MyPage} />
                     <Route path={PATH.report} component={pages.Report} />
+                    <Route
+                        path={PATH.writereport}
+                        component={pages.WriteReport}
+                    />
+                    <Route path={PATH.main} component={pages.Main} />
                 </Switch>
             </BrowserRouter>
             <Footer />

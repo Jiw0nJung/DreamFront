@@ -4,5 +4,6 @@ export { default as Loading } from './Loading';
 export { default as Login } from './Login';
 export { default as Main } from './Main';
 export { default as MyPage } from './MyPage';
+export { default as WriteReport } from './WriteReport';
 export { default as Report } from './Report';
 export { default as Store } from './Store';

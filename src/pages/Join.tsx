@@ -123,7 +123,7 @@ export default function Join(): JSX.Element {
     /**
      * @description Enter키를 눌러도 로그인이 됩니다.
      */
-    const loginEnterFunc = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    const joinEnterFunc = (event: React.KeyboardEvent<HTMLDivElement>) => {
         if (event.key === 'Enter') callUserApi();
     };
     return (
@@ -194,7 +194,7 @@ export default function Join(): JSX.Element {
                     type="text"
                     onChange={onChangeAddressValue}
                     value={userState.address}
-                    onKeyPress={loginEnterFunc}
+                    onKeyPress={joinEnterFunc}
                 />
                 <button
                     className="button"

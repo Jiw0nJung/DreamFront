@@ -5,7 +5,9 @@ import { ReportAction, reportAction } from '../action';
 export interface ReportState {
     title: string;
     content: string;
-    image: string;
+    image1: string;
+    image2: string;
+    image3: string;
     category: string;
     process: string;
 }
@@ -13,9 +15,11 @@ export interface ReportState {
 const initialState: ReportState = {
     title: '',
     content: '',
-    image: '',
+    image1: '',
+    image2: '',
+    image3: '',
     category: '',
-    process: 'inProcessing',
+    process: 'processing',
 };
 
 export default createReducer<ReportState, ReportAction>(initialState)
@@ -30,9 +34,17 @@ export default createReducer<ReportState, ReportAction>(initialState)
         content: action.payload,
     }))
     // 첨부파일 값 설정
-    .handleAction(reportAction.setImage, (state, action) => ({
+    .handleAction(reportAction.setImage1, (state, action) => ({
         ...state,
-        image: action.payload,
+        image1: action.payload,
+    }))
+    .handleAction(reportAction.setImage2, (state, action) => ({
+        ...state,
+        image2: action.payload,
+    }))
+    .handleAction(reportAction.setImage3, (state, action) => ({
+        ...state,
+        image3: action.payload,
     }))
     // Category 설정
     .handleAction(reportAction.setCategory, (state, action) => ({

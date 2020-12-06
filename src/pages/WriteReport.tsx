@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import Header from '../components/Header';
 import { useReportState, useAppState } from '../modules/hook';
 
-export default function Report(): JSX.Element {
+export default function WriteReport(): JSX.Element {
     const {
         state: reportState,
         setTitle,
@@ -87,7 +87,7 @@ export default function Report(): JSX.Element {
     );
 
     /**
-     * @description ID와 Password 값이 입력되면 버튼을 홯성화합니다.
+     * @description 버튼 활성화
      */
     const activateButton = useMemo(() => {
         return Boolean(
