@@ -1,28 +1,5 @@
 $text-color: map-get($colors, 'white');
 
-.header-container {
-    display: none;
-}
-.header-container2 {
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-    background-image: $background-color;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    height: 70px;
-}
-.header-container2 span {
-    color: white;
-    display: inline-block;
-    width: 380px;
-    margin: 0px auto;
-    text-align: left;
-    font-size: 30px;
-    padding: 18px;
-}
 .join-container {
     width: 100%;
     height: 615px;
@@ -65,8 +42,8 @@ p {
     margin-left: 20px;
 }
 
-input[type='text'],
-input[type='password'] {
+.join-container input[type='text'],
+.join-container input[type='password'] {
     padding-left: 10px;
     height: 26px;
     border-radius: 15px;
@@ -75,13 +52,14 @@ input[type='password'] {
     margin-bottom: 5px;
 }
 
-button {
+.mergeInput button {
     font-size: 12px;
     width: 70px;
     height: 26px;
     border-radius: 15px;
     border: 1px solid gray;
     background-color: white;
+    float: right;
 }
 
 .mergeInput {
@@ -95,9 +73,6 @@ button {
     border: none;
     width: 295px;
     float: left;
-}
-.mergeInput button {
-    float: right;
 }
 .join-inbox-3 {
     padding-top: 30px;

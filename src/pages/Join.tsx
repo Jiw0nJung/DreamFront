@@ -131,9 +131,6 @@ export default function Join(): JSX.Element {
             <Helmet>
                 <title>회원가입</title>
             </Helmet>
-            <div className="header-container2">
-                <span>회원가입</span>
-            </div>
             <div className="join-container">
                 <div className="join-box">
                     <div className="join-inbox">

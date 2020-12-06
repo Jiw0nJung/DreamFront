@@ -13,7 +13,6 @@ function App(): JSX.Element {
     return (
         <div className="App">
             <pages.Loading />
-            <Header />
             <BrowserRouter>
                 <Switch>
                     <Route path={PATH.store} component={pages.Store} />
@@ -25,7 +24,6 @@ function App(): JSX.Element {
                     <Route path={PATH.report} component={pages.Report} />
                 </Switch>
             </BrowserRouter>
-            <Footer />
         </div>
     );
 }
