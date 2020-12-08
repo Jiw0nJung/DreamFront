@@ -19,7 +19,7 @@ export default function useUserState() {
      * @description Uer Name 값 설정
      */
     const setUsername = useCallback(
-        (user_name: string) => dispatch(userAction.setUserName(user_name)),
+        (name: string) => dispatch(userAction.setUserName(name)),
         [dispatch],
     );
 
@@ -36,6 +36,15 @@ export default function useUserState() {
      */
     const setPassword = useCallback(
         (password: string) => dispatch(userAction.setPassword(password)),
+        [dispatch],
+    );
+
+    /**
+     * @description Password 값 설정
+     */
+    const setPasswordCheck = useCallback(
+        (passwordChk: string) =>
+            dispatch(userAction.setPasswordCheck(passwordChk)),
         [dispatch],
     );
 
@@ -68,6 +77,15 @@ export default function useUserState() {
      */
     const setAddress = useCallback(
         (address: string) => dispatch(userAction.setAddress(address)),
+        [dispatch],
+    );
+
+    /**
+     * @description Address 값 설정
+     */
+    const setDetailAddress = useCallback(
+        (detailAddress: string) =>
+            dispatch(userAction.setDetailAddress(detailAddress)),
         [dispatch],
     );
 
@@ -141,10 +159,12 @@ export default function useUserState() {
         setUsername,
         setEmail,
         setPassword,
+        setPasswordCheck,
         setBirth,
         setPhone,
         setSchool,
         setAddress,
+        setDetailAddress,
         setToken,
         callLoginApi,
         callUserApi,

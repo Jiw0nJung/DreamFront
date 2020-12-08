@@ -3,24 +3,28 @@ import { createReducer } from 'typesafe-actions';
 import { UserAction, userAction } from '../action';
 
 export interface UserState {
-    user_name: string;
+    name: string;
     email: string;
     password: string;
+    passwordChk: string;
     birth: string;
     phone: string;
     school: string;
     address: string;
+    detailAddress: string;
     token: null | string;
 }
 
 const initialState: UserState = {
-    user_name: '',
+    name: '',
     email: '',
     password: '',
+    passwordChk: '',
     birth: '',
     phone: '',
     school: '',
     address: '',
+    detailAddress: '',
     token: null,
 };
 
@@ -28,7 +32,7 @@ export default createReducer<UserState, UserAction>(initialState)
     // UserName 값 설정
     .handleAction(userAction.setUserName, (state, action) => ({
         ...state,
-        user_name: action.payload,
+        name: action.payload,
     }))
     // Email 값 설정
     .handleAction(userAction.setEmail, (state, action) => ({
@@ -39,6 +43,11 @@ export default createReducer<UserState, UserAction>(initialState)
     .handleAction(userAction.setPassword, (state, action) => ({
         ...state,
         password: action.payload,
+    }))
+    // Password 값 설정
+    .handleAction(userAction.setPasswordCheck, (state, action) => ({
+        ...state,
+        passwordChk: action.payload,
     }))
     // Birth 값 설정
     .handleAction(userAction.setBirth, (state, action) => ({
@@ -60,14 +69,21 @@ export default createReducer<UserState, UserAction>(initialState)
         ...state,
         address: action.payload,
     }))
+    // DetailAddress 값 설정
+    .handleAction(userAction.setDetailAddress, (state, action) => ({
+        ...state,
+        detailAddress: action.payload,
+    }))
     // Token 값 설정
     .handleAction(userAction.setToken, (_, action) => ({
-        user_name: '',
+        name: '',
         email: '',
         password: '',
+        passwordChk: '',
         birth: '',
         phone: '',
         school: '',
         address: '',
+        detailAddress: '',
         token: action.payload,
     }));

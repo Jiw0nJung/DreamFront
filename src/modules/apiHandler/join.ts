@@ -6,7 +6,7 @@ import { JOIN_ERROR } from '../../constants/error';
 import { ServerResponse, errorHandler } from './server';
 
 export function joinHandler(
-    user_name: string,
+    name: string,
     email: string,
     password: string,
     birth: string,
@@ -14,7 +14,7 @@ export function joinHandler(
     school: string,
     address: string,
 ) {
-    const data = { user_name, email, password, birth, phone, school, address };
+    const data = { name, email, password, birth, phone, school, address };
 
     return axios
         .post<ServerResponse>(API_USER_URL, data)
@@ -24,6 +24,8 @@ export function joinHandler(
 
 export function emailCheckHandler(email: string) {
     const data = { email };
+
+    console.log(data);
 
     return axios
         .post<ServerResponse>(API_EMAILCHECK_URL, data)

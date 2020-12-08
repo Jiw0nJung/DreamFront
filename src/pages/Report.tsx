@@ -15,6 +15,7 @@ export default function Report(): JSX.Element {
         setCategory,
         callReportApi,
     } = useReportState();
+
     const { state: appState, showErrorMessage } = useAppState();
 
     /**

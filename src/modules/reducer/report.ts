@@ -10,6 +10,7 @@ export interface ReportState {
     image3: string;
     category: string;
     process: string;
+    accept_term: boolean;
 }
 
 const initialState: ReportState = {
@@ -20,6 +21,7 @@ const initialState: ReportState = {
     image3: '',
     category: '',
     process: 'processing',
+    accept_term: false,
 };
 
 export default createReducer<ReportState, ReportAction>(initialState)
@@ -55,4 +57,9 @@ export default createReducer<ReportState, ReportAction>(initialState)
     .handleAction(reportAction.setProcess, (state, action) => ({
         ...state,
         process: action.payload,
+    }))
+    // accept_term 값 설정
+    .handleAction(reportAction.setAcceptTerm, (state, action) => ({
+        ...state,
+        accept_term: action.payload,
     }));

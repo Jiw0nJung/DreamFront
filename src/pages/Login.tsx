@@ -1,18 +1,28 @@
-import { check } from 'prettier';
 import React, { useMemo, useEffect, useCallback } from 'react';
+import { RouteChildrenProps } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+
+import path from '../constants/path';
 
 import { useUserState, useAppState } from '../modules/hook';
 
-export default function Login(): JSX.Element {
+export default function Login({ history }: RouteChildrenProps): JSX.Element {
     const {
         state: userState,
         setEmail,
         setPassword,
         callLoginApi,
+        isLogined,
     } = useUserState();
 
     const { state: appState, showErrorMessage } = useAppState();
+
+    /**
+     * @description Login Token이 존재하면 로그인 상태로 간주합니다.
+     */
+    useEffect(() => {
+        if (isLogined) history.replace(path.main);
+    }, [isLogined, history]);
 
     /**
      * @description Login 과정에서 Error가 발생하면 Message를 보여줍니다.

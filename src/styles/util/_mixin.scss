@@ -19,6 +19,11 @@
     }
 }
 
+@mixin custom-input-basic() {
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
 @mixin custom-button-basic() {
     border: none;
     outline: none;

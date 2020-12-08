@@ -69,6 +69,15 @@ export default function useReportState() {
     );
 
     /**
+     * @description Accept Term 값 설정
+     */
+    const setAcceptTerm = useCallback(
+        (accept_term: boolean) =>
+            dispatch(reportAction.setAcceptTerm(accept_term)),
+        [dispatch],
+    );
+
+    /**
      * @description API서버에서 Token 값을 가져와 설정
      */
     const callReportApi = useCallback(
@@ -89,6 +98,7 @@ export default function useReportState() {
         setImage3,
         setCategory,
         setProcess,
+        setAcceptTerm,
         callReportApi,
     };
 }

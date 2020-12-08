@@ -5,10 +5,12 @@ import { ServerError } from '../apiHandler';
 const SET_USERNAME = 'user/SET_USERNAME'; // Username 값 설정
 const SET_EMAIL = 'user/SET_EMAIL'; // Email 값 설정
 const SET_PASSWORD = 'user/SET_PASSWORD'; // Password 값 설정
+const SET_PASSWORD_CHK = 'user/SET_PASSWORD_CHK'; // Password 확인 값 설정
 const SET_BIRTH = 'user/SET_BIRTH'; // Birth 값 설정
 const SET_PHONE = 'user/SET_PHONE'; // Phone 값 설정
 const SET_SCHOOL = 'user/SET_SCHOOL'; // school 값 설정
 const SET_ADDRESS = 'user/SET_ADDRESS'; // Address 값 설정
+const SET_DETAIL_ADDRESS = 'user/SET_DETAIL_ADDRESS'; // Address 값 설정
 const SET_TOKEN = 'login/SET_TOKEN'; // Token 값 설정
 
 const CALL_LOGIN_API = 'login/LOGIN_API'; // API서버에서 Token 값을 가져와 설정
@@ -19,10 +21,12 @@ const CALL_USER_API = 'join/USER_API'; // API서버에 회원가입 요청
 const setUserName = createAction(SET_USERNAME)<string>();
 const setEmail = createAction(SET_EMAIL)<string>();
 const setPassword = createAction(SET_PASSWORD)<string>();
+const setPasswordCheck = createAction(SET_PASSWORD_CHK)<string>();
 const setBirth = createAction(SET_BIRTH)<string>();
 const setPhone = createAction(SET_PHONE)<string>();
 const setSchool = createAction(SET_SCHOOL)<string>();
 const setAddress = createAction(SET_ADDRESS)<string>();
+const setDetailAddress = createAction(SET_DETAIL_ADDRESS)<string>();
 const setToken = createAction(SET_TOKEN)<string | null>();
 
 const callLoginApi = createAction(CALL_LOGIN_API)();
@@ -34,10 +38,12 @@ export const userType = {
     SET_USERNAME,
     SET_EMAIL,
     SET_PASSWORD,
+    SET_PASSWORD_CHK,
     SET_BIRTH,
     SET_PHONE,
     SET_SCHOOL,
     SET_ADDRESS,
+    SET_DETAIL_ADDRESS,
     SET_TOKEN,
     CALL_LOGIN_API,
     CALL_LOGIN_API_FAILURE,
@@ -49,10 +55,12 @@ export const userAction = {
     setUserName,
     setEmail,
     setPassword,
+    setPasswordCheck,
     setBirth,
     setPhone,
     setSchool,
     setAddress,
+    setDetailAddress,
     setToken,
     callLoginApi,
     callLoginApiFailure,
@@ -63,10 +71,12 @@ export const userAction = {
 export type SetUserName = ActionType<typeof setUserName>;
 export type SetEmail = ActionType<typeof setEmail>;
 export type SetPassword = ActionType<typeof setPassword>;
+export type SetPasswordCheck = ActionType<typeof setPasswordCheck>;
 export type SetBirth = ActionType<typeof setBirth>;
 export type SetPhone = ActionType<typeof setPhone>;
 export type SetSChool = ActionType<typeof setSchool>;
 export type SetAddress = ActionType<typeof setAddress>;
+export type SetDetalAddress = ActionType<typeof setDetailAddress>;
 export type SetToken = ActionType<typeof setToken>;
 export type CallLoginApi = ActionType<typeof callLoginApi>;
 export type CallLoginApiFailure = ActionType<typeof callLoginApiFailure>;

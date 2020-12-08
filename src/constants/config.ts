@@ -23,9 +23,9 @@ const host: ConfigType = {
 };
 
 const apiServerHost: ConfigType = {
-    [DEV_MODE]: '',
-    [PROD_MODE]: '',
-    [TEST_MODE]: '',
+    [DEV_MODE]: 'http://118.67.135.118:5000',
+    [PROD_MODE]: 'http://118.67.135.118:5000',
+    [TEST_MODE]: 'http://118.67.135.118:5000',
 };
 
 const apiServerLoginUrl: ConfigType = {

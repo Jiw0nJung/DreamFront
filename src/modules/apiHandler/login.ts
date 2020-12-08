@@ -15,5 +15,7 @@ export default function loginHandler(email: string, password: string) {
     return axios
         .post<ServerResponse>(API_LOGIN_URL, data)
         .then(res => res.data.data as LoginResponse)
-        .catch(error => errorHandler(error, LOGIN_ERROR));
+        .catch(error => {
+            errorHandler(error, LOGIN_ERROR);
+        });
 }

@@ -44,6 +44,7 @@ $text-color: map-get($colors, 'white');
     border: 1px solid gray;
     margin-bottom: 5px;
     background-color: rgb(200, 220, 220);
+    @include custom-input-basic();
 }
 .login-box2-login-img {
     top: 100px;

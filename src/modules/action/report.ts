@@ -9,6 +9,7 @@ const SET_IMAGE2 = 'report/SET_IMAGE2'; // image2 값 설정
 const SET_IMAGE3 = 'report/SET_IMAGE3'; // image3 값 설정
 const SET_CATEGORY = 'report/SET_CATEGORY'; // 카테고리 값 설정
 const SET_PROCESS = 'report/SET_PROCESS'; // 프로세스 설정
+const SET_ACCEPT_TERM = 'report/SET_ACCEPT_TERM'; //  설정
 
 const CALL_REPORT_API = 'report/REPORT_API'; // API서버에 글작성 요청
 
@@ -19,6 +20,7 @@ const setImage2 = createAction(SET_IMAGE2)<string>();
 const setImage3 = createAction(SET_IMAGE3)<string>();
 const setCategory = createAction(SET_CATEGORY)<string>();
 const setProcess = createAction(SET_PROCESS)<string>();
+const setAcceptTerm = createAction(SET_ACCEPT_TERM)<boolean>();
 
 const callReportApi = createAction(CALL_REPORT_API)();
 
@@ -30,6 +32,7 @@ export const reportType = {
     SET_IMAGE3,
     SET_CATEGORY,
     SET_PROCESS,
+    SET_ACCEPT_TERM,
     CALL_REPORT_API,
 };
 
@@ -41,6 +44,7 @@ export const reportAction = {
     setImage3,
     setCategory,
     setProcess,
+    setAcceptTerm,
     callReportApi,
 };
 
@@ -51,5 +55,6 @@ export type SetImage2 = ActionType<typeof setImage2>;
 export type SetImage3 = ActionType<typeof setImage3>;
 export type SetCategory = ActionType<typeof setCategory>;
 export type SetProcess = ActionType<typeof setProcess>;
+export type setAcceptTerm = ActionType<typeof setAcceptTerm>;
 export type CallReportApi = ActionType<typeof callReportApi>;
 export type ReportAction = ActionType<typeof reportAction>;

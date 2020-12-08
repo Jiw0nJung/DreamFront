@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Header from '../components/Header';
+import Term from '../components/Term';
 import { useReportState, useAppState } from '../modules/hook';
 
 export default function WriteReport(): JSX.Element {
@@ -14,6 +15,7 @@ export default function WriteReport(): JSX.Element {
         setCategory,
         callReportApi,
     } = useReportState();
+
     const { state: appState, showErrorMessage } = useAppState();
 
     /**
@@ -93,18 +95,12 @@ export default function WriteReport(): JSX.Element {
         return Boolean(
             reportState.title &&
                 reportState.content &&
-                reportState.image1 &&
-                reportState.image2 &&
-                reportState.image3 &&
                 reportState.category &&
                 reportState.process,
         );
     }, [
         reportState.title,
         reportState.content,
-        reportState.image1,
-        reportState.image2,
-        reportState.image3,
         reportState.category,
         reportState.process,
     ]);
@@ -183,6 +179,7 @@ export default function WriteReport(): JSX.Element {
                     onClick={callReportApi}
                     disabled={!activateButton}
                 >
+                    <Term />
                     작성완료
                 </button>
             </div>

@@ -1,5 +1,4 @@
-import { LOGIN_SESSION_KEY } from '../../constants/config';
-
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /**
  * @description Session Storage에 data를 저장합니다.
  */
@@ -28,19 +27,19 @@ function deleteSessionStorage(key: string) {
  * @param token Login Token
  */
 export function saveLoginToken(token: string) {
-    saveSessionStorage(LOGIN_SESSION_KEY, token);
+    saveSessionStorage('dream_login_session', token);
 }
 
 /**
  * @description Login Token을 Session Storage에서 가져옵니다.
  */
 export function loadLoginToken(): null | string {
-    return loadSessionStorage(LOGIN_SESSION_KEY);
+    return loadSessionStorage('dream_login_session');
 }
 
 /**
  * @description Login Token을 Session Storage에서 삭제합니다.
  */
 export function deleteLoginToken() {
-    deleteSessionStorage(LOGIN_SESSION_KEY);
+    deleteSessionStorage('dream_login_session');
 }

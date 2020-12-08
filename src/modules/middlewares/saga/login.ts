@@ -25,6 +25,7 @@ function* callLoginApi$() {
                 data.email,
                 data.password,
             );
+
             saveLoginToken(token); // Session Storage에 Login Token을 저장합니다.
             yield put(userAction.setToken(token));
 
