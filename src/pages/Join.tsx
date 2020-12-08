@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { useUserState, useAppState } from '../modules/hook';
 
 import { exp } from '../constants/text';
+import PATH from '../constants/path';
 
 declare global {
     interface Window {
@@ -192,7 +193,9 @@ export default function Join(): JSX.Element {
         userState.phone,
         userState.address,
     ]);
-
+    const redirectMain = useCallback(() => {
+        document.location.href = PATH.main;
+    }, [history]);
     /**
      * @description Enter키를 눌러도 로그인이 됩니다.
      */
@@ -201,11 +204,20 @@ export default function Join(): JSX.Element {
     };
     return (
         <>
+            <div className="header-container">
+                <img
+                    alt="dream-logo-white"
+                    srcSet="/image/dream-logo-white.png"
+                    height="70px"
+                    onClick={redirectMain}
+                />
+            </div>
             <Helmet>
                 <title>회원가입</title>
             </Helmet>
             <div className="join-container">
                 <div className="join-box">
+                    <div className="join-title">회원가입</div>
                     <div className="join-inbox">
                         <div className="join-inbox-1">
                             <p>이름</p>
@@ -330,6 +342,9 @@ export default function Join(): JSX.Element {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className="footer-container">
+                COPYRIGHT (C) Team Dream Hi All Rights Reserved.
             </div>
         </>
     );

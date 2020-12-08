@@ -1,8 +1,8 @@
 import React, { useCallback, useEffect, useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
-import Header from '../components/Header';
 import Term from '../components/Term';
 import { useReportState, useAppState } from '../modules/hook';
+import PATH from '../constants/path';
 
 export default function WriteReport(): JSX.Element {
     const {
@@ -104,84 +104,164 @@ export default function WriteReport(): JSX.Element {
         reportState.category,
         reportState.process,
     ]);
-
+    const redirectMain = useCallback(() => {
+        document.location.href = PATH.main;
+    }, [history]);
     return (
         <>
             <Helmet>
                 <title>신고</title>
             </Helmet>
-            {/* <Header /> */}
-            <div className="join-container">
-                신고제목
-                <br />
-                <input
-                    className="field title"
-                    placeholder="제목"
-                    type="text"
-                    onChange={onChangeTitleValue}
-                    value={reportState.title}
+            <div className="header-container">
+                <img
+                    alt="dream-logo-white"
+                    srcSet="/image/dream-logo-white.png"
+                    height="70px"
+                    onClick={redirectMain}
                 />
-                <br />
-                선택
-                <br />
-                <select
-                    className="field category"
-                    onChange={onChangeCategoryValue}
-                    value={reportState.category}
-                >
-                    <option value="">선택</option>
-                    <option value="확교폭력">학교폭력</option>
-                    <option value="가정폭력">가정폭력</option>
-                </select>
-                <br />
-                내용
-                <br />
-                <textarea
-                    className="field content"
-                    placeholder="내용"
-                    onChange={onChangeContentValue}
-                    value={reportState.content}
-                />
-                <br />
-                첨부파일1
-                <br />
-                <input
-                    className="field image"
-                    placeholder="첨부파일"
-                    type="file"
-                    onChange={onChangeImage1Value}
-                    value={reportState.image1}
-                />
-                <br />
-                첨부파일2
-                <br />
-                <input
-                    className="field image"
-                    placeholder="첨부파일"
-                    type="file"
-                    onChange={onChangeImage2Value}
-                    value={reportState.image2}
-                />
-                <br />
-                첨부파일3
-                <br />
-                <input
-                    className="field image"
-                    placeholder="첨부파일"
-                    type="file"
-                    onChange={onChangeImage3Value}
-                    value={reportState.image3}
-                />
-                <br />
-                <button
-                    className="button"
-                    type="button"
-                    onClick={callReportApi}
-                    disabled={!activateButton}
-                >
-                    <Term />
-                    작성완료
-                </button>
+            </div>
+            <div className="write-container">
+                <div className="write-title">신고하기</div>
+                <div className="write-img">
+                    <p>신고 등록</p>
+                    <p>추천 진행 중</p>
+                    <p>추천 종료</p>
+                    <img
+                        srcSet="/image/write-line.png"
+                        height="70px"
+                        onClick={redirectMain}
+                    />
+                </div>
+                <div className="write-box1">
+                    <table>
+                        <tr>
+                            <th>신고제목</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input
+                                    className="field title"
+                                    placeholder="제목"
+                                    type="text"
+                                    onChange={onChangeTitleValue}
+                                    value={reportState.title}
+                                />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>선택</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <select
+                                    className="field category"
+                                    onChange={onChangeCategoryValue}
+                                    value={reportState.category}
+                                >
+                                    <option value="">선택</option>
+                                    <option value="확교폭력">학교폭력</option>
+                                    <option value="가정폭력">가정폭력</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>내용</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <textarea
+                                    className="field content"
+                                    placeholder="내용"
+                                    onChange={onChangeContentValue}
+                                    value={reportState.content}
+                                />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>첨부파일1</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input
+                                    className="inputFile"
+                                    placeholder="첨부파일"
+                                    type="file"
+                                    onChange={onChangeImage1Value}
+                                    value={reportState.image1}
+                                />
+                                <hr></hr>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>첨부파일2</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input
+                                    className="inputFile"
+                                    placeholder="첨부파일"
+                                    type="file"
+                                    onChange={onChangeImage2Value}
+                                    value={reportState.image2}
+                                />
+                                <hr></hr>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>첨부파일3</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input
+                                    className="inputFile"
+                                    placeholder="첨부파일"
+                                    type="file"
+                                    onChange={onChangeImage3Value}
+                                    value={reportState.image3}
+                                />
+                                <hr></hr>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>동의서</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button
+                                    className="agree_button"
+                                    type="button"
+                                    onClick={callReportApi}
+                                    disabled={!activateButton}
+                                >
+                                    <Term />
+                                    <input
+                                        type="checkbox"
+                                        className="chk_agree"
+                                        value="agree"
+                                    />
+                                    <span> 동의합니다</span>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center">
+                                <button
+                                    className="button"
+                                    type="button"
+                                    disabled={!activateButton}
+                                >
+                                    신고하기
+                                </button>
+                                <button className="button" type="button">
+                                    취소
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div className="footer-container">
+                COPYRIGHT (C) Team Dream Hi All Rights Reserved.
             </div>
         </>
     );

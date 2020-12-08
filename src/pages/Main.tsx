@@ -56,6 +56,9 @@ export default function Main({ history }: RouteChildrenProps): JSX.Element {
                     <List title="가정폭력" />
                 </div>
             </div>
+            <div className="footer-container">
+                COPYRIGHT (C) Team Dream Hi All Rights Reserved.
+            </div>
         </>
     );
 }
