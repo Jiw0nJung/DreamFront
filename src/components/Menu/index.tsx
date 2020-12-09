@@ -13,8 +13,7 @@ interface MenuProps {
 export default function Menu({ isLogined }: MenuProps): JSX.Element {
     const redirectReport = useCallback(() => {
         if (isLogined) document.location.href = PATH.writereport;
-        // else document.location.href = PATH.login;
-        else document.location.href = PATH.writereport;
+        else document.location.href = PATH.login;
     }, [isLogined, history]);
 
     const redirectStore = useCallback(() => {

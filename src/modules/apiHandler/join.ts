@@ -13,8 +13,18 @@ export function joinHandler(
     phone: string,
     school: string,
     address: string,
+    detailAddress: string,
 ) {
-    const data = { name, email, password, birth, phone, school, address };
+    const data = {
+        name,
+        email,
+        password,
+        birth,
+        phone,
+        school,
+        address,
+        detailAddress,
+    };
 
     return axios
         .post<ServerResponse>(API_USER_URL, data)
@@ -23,12 +33,10 @@ export function joinHandler(
 }
 
 export function emailCheckHandler(email: string) {
-    const data = { email };
-
-    console.log(data);
+    const url = API_EMAILCHECK_URL + '?email=' + email;
 
     return axios
-        .post<ServerResponse>(API_EMAILCHECK_URL, data)
+        .get(url)
         .then(res => res.data.data)
         .catch(error => errorHandler(error, JOIN_ERROR));
 }

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { all, call, put, select, takeEvery } from 'redux-saga/effects';
 
 import {
@@ -9,7 +10,7 @@ import { RootState } from '../../reducer';
 import { appAction, userAction, userType } from '../../action';
 
 /**
- * @description CALL_LOGIN_API 타입에 대한 Worker로서 API Server에서 로그인 토큰을 발급 받습니다.
+ * @description CALL_EMAILCHECK_API
  */
 function* callEmailCheckApi$() {
     const data = yield select((state: RootState) => state.userReducer);
@@ -18,13 +19,13 @@ function* callEmailCheckApi$() {
         try {
             yield put(appAction.setLoading()); // App을 Loading 상태로 만듭니다.
 
-            const { token } = yield call(emailCheckHandler, data.email);
-
-            yield put(userAction.setToken(token));
+            yield call(emailCheckHandler, data.email);
+            console.log('다녀왔음', yield call(emailCheckHandler, data.email));
 
             yield put(appAction.releaseLoading()); // Loading 상태를 헤제합니다.
         } catch (error) {
             const serverError = parseServerError(error);
+            yield put(appAction.setServerError(serverError));
         }
     }
 }
@@ -34,17 +35,36 @@ function* callEmailCheckApi$() {
 function* callJoinApi$() {
     const data = yield select((state: RootState) => state.userReducer);
 
-    if (data && data.email) {
+    if (
+        data &&
+        data.name &&
+        data.school &&
+        data.birth &&
+        data.phone &&
+        data.email &&
+        data.password &&
+        data.address &&
+        data.detailAddress
+    ) {
         try {
             yield put(appAction.setLoading()); // App을 Loading 상태로 만듭니다.
 
-            const { token } = yield call(emailCheckHandler, data.email);
-
-            yield put(userAction.setToken(token));
+            const { token } = yield call(
+                joinHandler,
+                data.name,
+                data.school,
+                data.birth,
+                data.phone,
+                data.email,
+                data.password,
+                data.address,
+                data.detailAddress,
+            );
 
             yield put(appAction.releaseLoading()); // Loading 상태를 헤제합니다.
         } catch (error) {
             const serverError = parseServerError(error);
+            yield put(appAction.setServerError(serverError));
         }
     }
 }

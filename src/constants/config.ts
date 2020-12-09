@@ -35,9 +35,9 @@ const apiServerLoginUrl: ConfigType = {
 };
 
 const apiServeEmailCheckUrl: ConfigType = {
-    [DEV_MODE]: '/emailCheck',
-    [PROD_MODE]: '/emailCheck',
-    [TEST_MODE]: '/emailCheck',
+    [DEV_MODE]: '/email-status',
+    [PROD_MODE]: '/email-status',
+    [TEST_MODE]: '/email-status',
 };
 
 const apiServerUserUrl: ConfigType = {
@@ -70,7 +70,7 @@ export const HOST = host[MODE];
 export const API_SERVER_HOST = apiServerHost[MODE];
 export const API_LOGIN_URL = apiServerHost[MODE] + apiServerLoginUrl[MODE];
 export const API_EMAILCHECK_URL =
-    apiServerHost[MODE] + apiServerLoginUrl[MODE] + apiServeEmailCheckUrl[MODE];
+    apiServerHost[MODE] + apiServeEmailCheckUrl[MODE];
 export const API_USER_URL = apiServerHost[MODE] + +apiServerUserUrl[MODE];
 export const API_USER_REPORT_URL =
     apiServerHost[MODE] + apiServerUsersReportUrl[MODE];
