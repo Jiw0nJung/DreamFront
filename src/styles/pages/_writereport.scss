@@ -1,0 +1,89 @@
+.write-container {
+    height: calc(100% - 120px);
+    min-height: 1500px;
+}
+.write-title {
+    font-size: 30px;
+    font-weight: 800;
+    padding: 40px;
+}
+.write-img {
+    margin: 0px auto;
+    width: 1117px;
+    p {
+        width: 100px;
+        display: inline;
+        font-weight: normal;
+        font-size: 20px;
+    }
+    p:nth-child(1) {
+        float: left;
+        color: gray;
+    }
+    p:nth-child(2) {
+        color: black;
+    }
+    p:nth-child(3) {
+        float: right;
+        color: gray;
+    }
+    img {
+        width: 100%;
+        height: 50px;
+    }
+}
+.write-box1 {
+    width: 1117px;
+    margin: 0px auto;
+    padding: 20px;
+    input[type='text'],
+    select,
+    textarea {
+        @include custom-input-basic();
+        border: 1px solid rgb(200, 200, 200);
+        margin-bottom: 5px;
+    }
+    input[type='text'] {
+        width: 100%;
+        height: 26px;
+    }
+    select {
+        width: 200px;
+        height: 26px;
+    }
+    textarea {
+        width: 100%;
+        height: 400px;
+        resize: none;
+    }
+    table {
+        width: 1117px;
+        margin: 0px auto;
+        text-align: left;
+        th,
+        td {
+            padding-top: 5px;
+        }
+    }
+    .inputFile {
+        padding-bottom: 7px;
+    }
+    .button {
+        @include custom-button-basic();
+        border: 1px solid gray;
+        border-radius: 0px;
+        margin-top: 40px;
+        width: 115px;
+        height: 26px;
+        font-size: 15px;
+        padding: 0px;
+        &:nth-child(1) {
+            background-color: #1c1a62;
+            color: white;
+        }
+        &:nth-child(2) {
+            background-color: white;
+            color: black;
+        }
+    }
+}

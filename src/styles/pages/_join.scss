@@ -1,8 +1,9 @@
 $text-color: map-get($colors, 'white');
 .join-container {
     width: 100%;
-    height: 615px;
+    height: calc(100% - 140px);
     background-color: #eaeaea;
+    min-height: 800px;
     input[type='text'] {
         @include custom-input-basic();
         padding-left: 10px;
@@ -22,9 +23,14 @@ $text-color: map-get($colors, 'white');
         margin-bottom: 5px;
     }
 }
+.join-title {
+    font-size: 30px;
+    font-weight: 800;
+    padding-top: 40px;
+}
 .join-box {
     width: 442px;
-    height: 615px;
+    height: 100%;
     background-color: #eaeaea;
     display: inline-block;
 }
@@ -43,18 +49,18 @@ p {
 }
 .join-inbox-1 {
     display: inline-block;
-    padding-top: 20px;
+    padding-top: 25px;
     width: 380px;
 }
 .join-inbox-2-1 {
     display: inline-block;
-    padding-top: 20px;
+    padding-top: 25px;
     width: 180px;
     text-align: left;
 }
 .join-inbox-2-2 {
     display: inline-block;
-    padding-top: 20px;
+    padding-top: 25px;
     width: 180px;
     text-align: left;
     margin-left: 20px;
@@ -84,7 +90,7 @@ p {
     }
 }
 .join-inbox-3 {
-    padding-top: 30px;
+    padding-top: 35px;
     button {
         @include custom-button-basic();
         border: 1px solid gray;

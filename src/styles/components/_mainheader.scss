@@ -3,10 +3,6 @@ $underline: map-get($colors, 'primary-purple');
 $background-color: map-get($colors, 'white');
 
 .main-header-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
     z-index: 2;
     background-color: $background-color;
     justify-content: space-between;

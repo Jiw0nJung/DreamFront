@@ -2,9 +2,6 @@ $underline: map-get($colors, 'primary-purple');
 $background-color: map-get($colors, 'gradient-footer');
 
 .header-container {
-    top: 0;
-    left: 0;
-    right: 0;
     z-index: 1;
     background-image: $background-color;
     justify-content: space-between;
