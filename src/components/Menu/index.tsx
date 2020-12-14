@@ -12,12 +12,12 @@ interface MenuProps {
  */
 export default function Menu({ isLogined }: MenuProps): JSX.Element {
     const redirectReport = useCallback(() => {
-        if (isLogined) document.location.href = PATH.writereport;
-        else document.location.href = PATH.login;
+        if (isLogined) window.location.assign(PATH.writereport);
+        else window.location.assign(PATH.login);
     }, [isLogined, history]);
 
     const redirectStore = useCallback(() => {
-        document.location.href = PATH.store;
+        window.location.assign(PATH.store);
     }, [isLogined, history]);
 
     return (

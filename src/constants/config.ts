@@ -10,12 +10,6 @@ type ConfigType = {
 
 const mode = DEV_MODE;
 
-const loginSessionKey: ConfigType = {
-    [DEV_MODE]: '/login',
-    [PROD_MODE]: '/login',
-    [TEST_MODE]: '/login',
-};
-
 const host: ConfigType = {
     [DEV_MODE]: 'http://127.0.0.1:3000',
     [PROD_MODE]: '',
@@ -23,9 +17,9 @@ const host: ConfigType = {
 };
 
 const apiServerHost: ConfigType = {
-    [DEV_MODE]: 'http://118.67.135.118:5000',
-    [PROD_MODE]: 'http://118.67.135.118:5000',
-    [TEST_MODE]: 'http://118.67.135.118:5000',
+    [DEV_MODE]: 'http://ec2-3-129-211-5.us-east-2.compute.amazonaws.com',
+    [PROD_MODE]: 'http://ec2-3-129-211-5.us-east-2.compute.amazonaws.com',
+    [TEST_MODE]: 'http://ec2-3-129-211-5.us-east-2.compute.amazonaws.com',
 };
 
 const apiServerLoginUrl: ConfigType = {
@@ -40,16 +34,16 @@ const apiServeEmailCheckUrl: ConfigType = {
     [TEST_MODE]: '/email-status',
 };
 
-const apiServerUserUrl: ConfigType = {
-    [DEV_MODE]: '/user',
-    [PROD_MODE]: '/user',
-    [TEST_MODE]: '/user',
+const apiJoinUrl: ConfigType = {
+    [DEV_MODE]: '/join',
+    [PROD_MODE]: '/join',
+    [TEST_MODE]: '/join',
 };
 
-const apiServerUsersReportUrl: ConfigType = {
-    [DEV_MODE]: '/user/report/history',
-    [PROD_MODE]: '/user/report/history',
-    [TEST_MODE]: '/user/report/history',
+const apiWriteReportUrl: ConfigType = {
+    [DEV_MODE]: '/regist',
+    [PROD_MODE]: '/regist',
+    [TEST_MODE]: '/regist',
 };
 
 const apiServerReportUrl: ConfigType = {
@@ -58,24 +52,37 @@ const apiServerReportUrl: ConfigType = {
     [TEST_MODE]: '/report',
 };
 
-const apiReportRecommendUrl: ConfigType = {
-    [DEV_MODE]: '/thrust',
-    [PROD_MODE]: '/thrust',
-    [TEST_MODE]: '/thrust',
+const apiServerReportsUrl: ConfigType = {
+    [DEV_MODE]: '/reports',
+    [PROD_MODE]: '/reports',
+    [TEST_MODE]: '/reports',
+};
+
+const apiEmpathyReportUrl: ConfigType = {
+    [DEV_MODE]: '/empathy',
+    [PROD_MODE]: '/empathy',
+    [TEST_MODE]: '/empathy',
+};
+const apiSupportReportUrl: ConfigType = {
+    [DEV_MODE]: '/support',
+    [PROD_MODE]: '/support',
+    [TEST_MODE]: '/support',
 };
 
 export const MODE = process.env.NODE_ENV || mode;
-export const LOGIN_SESSION_KEY = loginSessionKey[MODE];
 export const HOST = host[MODE];
 export const API_SERVER_HOST = apiServerHost[MODE];
 export const API_LOGIN_URL = apiServerHost[MODE] + apiServerLoginUrl[MODE];
 export const API_EMAILCHECK_URL =
     apiServerHost[MODE] + apiServeEmailCheckUrl[MODE];
-export const API_USER_URL = apiServerHost[MODE] + +apiServerUserUrl[MODE];
-export const API_USER_REPORT_URL =
-    apiServerHost[MODE] + apiServerUsersReportUrl[MODE];
-export const API_REPORT_URL = apiServerHost[MODE] + apiServerReportUrl[MODE];
+export const API_JOIN_URL = apiServerHost[MODE] + apiJoinUrl[MODE];
+export const API_VIEW_REPORT_URL =
+    apiServerHost[MODE] + apiServerReportUrl[MODE];
+export const API_REPORT_LIST_URL =
+    apiServerHost[MODE] + apiServerReportsUrl[MODE];
+export const API_WRITE_REPORT_URL =
+    apiServerHost[MODE] + apiWriteReportUrl[MODE];
 export const API_REPORT_RECOMMEND_URL =
-    apiServerHost[MODE] +
-    apiServerReportUrl[MODE] +
-    apiReportRecommendUrl[MODE];
+    apiServerHost[MODE] + apiEmpathyReportUrl[MODE];
+export const API_REPORT_SUPPORT_URL =
+    apiServerHost[MODE] + apiSupportReportUrl[MODE];

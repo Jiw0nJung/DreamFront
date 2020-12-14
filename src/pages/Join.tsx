@@ -4,6 +4,8 @@ import { useUserState, useAppState } from '../modules/hook';
 
 import { exp } from '../constants/text';
 import PATH from '../constants/path';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
 
 declare global {
     interface Window {
@@ -174,14 +176,37 @@ export default function Join(): JSX.Element {
     ]);
 
     /**
-     * @description ID와 Password 값이 입력되면 버튼을 홯성화합니다.
+     * @description 값 확인
      */
     const checkExp = useCallback(() => {
-        const chkEmail = exp.email.test(userState.email);
-        const chkName = exp.name.test(userState.name);
-        const chkPw = exp.password.test(userState.password);
-        const phone = exp.phone.test(userState.phone);
-        const pwDblChk = Boolean(userState.password === userState.passwordChk);
+        const chkEmail = exp.email.test(userState.email)
+            ? null
+            : alert('이메일 형식을 확인해주세요.');
+        const chkName = exp.name.test(userState.name)
+            ? null
+            : alert('이름은 한국어로 입력해주세요');
+        const chkPw = exp.password.test(userState.password)
+            ? null
+            : alert('비밀번호는 영어 대,소문자와 숫자로 입력해주세요');
+        const phone = exp.phone.test(userState.phone)
+            ? null
+            : alert('핸드폰 번호 형식은 01X-XXXX-XXXX입니다');
+        const pwDblChk = Boolean(userState.password === userState.passwordChk)
+            ? null
+            : alert('비밀번호가 일치하지 않습니다.');
+
+        // console.log(
+        //     'checkEmail',
+        //     chkEmail,
+        //     'chkName',
+        //     chkName,
+        //     'chePW',
+        //     chkPw,
+        //     'phone',
+        //     phone,
+        //     'pwDblChk',
+        //     pwDblChk,
+        // );
 
         Boolean(chkEmail && chkName && chkPw && phone && pwDblChk)
             ? callUserApi
@@ -193,9 +218,7 @@ export default function Join(): JSX.Element {
         userState.phone,
         userState.address,
     ]);
-    const redirectMain = useCallback(() => {
-        document.location.href = PATH.main;
-    }, [history]);
+
     /**
      * @description Enter키를 눌러도 로그인이 됩니다.
      */
@@ -204,14 +227,7 @@ export default function Join(): JSX.Element {
     };
     return (
         <>
-            <div className="header-container">
-                <img
-                    alt="dream-logo-white"
-                    srcSet="/image/dream-logo-white.png"
-                    height="70px"
-                    onClick={redirectMain}
-                />
-            </div>
+            <Header />
             <Helmet>
                 <title>회원가입</title>
             </Helmet>
@@ -343,9 +359,7 @@ export default function Join(): JSX.Element {
                     </div>
                 </div>
             </div>
-            <div className="footer-container">
-                COPYRIGHT (C) Team Dream Hi All Rights Reserved.
-            </div>
+            <Footer />
         </>
     );
 }

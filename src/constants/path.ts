@@ -7,7 +7,8 @@ export const PATH = {
     login: '/login',
     mypage: '/mypage',
     store: '/store',
-    report: `/report/:${REPORT_ID}`,
+    reportdetail: `/report/:${REPORT_ID}`,
+    report: `/report`,
     writereport: `/writereport`,
 };
 

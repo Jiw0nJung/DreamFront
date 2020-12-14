@@ -30,6 +30,13 @@ export default function useUserState() {
         (email: string) => dispatch(userAction.setEmail(email)),
         [dispatch],
     );
+    /**
+     * @description EMAIL_CHECK 값 설정
+     */
+    const setEmailCheck = useCallback(
+        (emailCheck: boolean) => dispatch(userAction.setEmailCheck(emailCheck)),
+        [dispatch],
+    );
 
     /**
      * @description Password 값 설정
@@ -158,6 +165,7 @@ export default function useUserState() {
         state: user,
         setUsername,
         setEmail,
+        setEmailCheck,
         setPassword,
         setPasswordCheck,
         setBirth,

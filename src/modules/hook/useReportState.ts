@@ -61,14 +61,6 @@ export default function useReportState() {
     );
 
     /**
-     * @description Process 값 설정
-     */
-    const setProcess = useCallback(
-        (process: string) => dispatch(reportAction.setProcess(process)),
-        [dispatch],
-    );
-
-    /**
      * @description Accept Term 값 설정
      */
     const setAcceptTerm = useCallback(
@@ -78,15 +70,63 @@ export default function useReportState() {
     );
 
     /**
-     * @description API서버에서 Token 값을 가져와 설정
+     * @description Empathy 값 설정
      */
-    const callReportApi = useCallback(
-        () => dispatch(reportAction.callReportApi()),
+    const setEmpathy = useCallback(
+        (empathy: number) => dispatch(reportAction.setEmpathy(empathy)),
+        [dispatch],
+    );
+
+    /**
+     * @description Support 값 설정
+     */
+    const setSupport = useCallback(
+        (support: number) => dispatch(reportAction.setSupport(support)),
+        [dispatch],
+    );
+
+    /**
+     * @description API서버에서 Report 가져오기
+     */
+    const callViewReportApi = useCallback(
+        () => dispatch(reportAction.callViewReportApi()),
+        [dispatch],
+    );
+
+    /**
+     * @description API서버에 Report 올리기
+     */
+    const callWriteReportApi = useCallback(
+        () => dispatch(reportAction.callWriteReportApi()),
+        [dispatch],
+    );
+
+    /**
+     * @description API서버에서 Report 리스트 가져오기
+     */
+    const callReportListApi = useCallback(
+        () => dispatch(reportAction.callReportListApi()),
+        [dispatch],
+    );
+
+    /**
+     * @description API서버에서 공감 가져오기
+     */
+    const callEmpathyApi = useCallback(
+        () => dispatch(reportAction.callEmpathyApi()),
+        [dispatch],
+    );
+
+    /**
+     * @description API서버에서 지원하기 가져오기
+     */
+    const callSupportApi = useCallback(
+        () => dispatch(reportAction.callSupportApi()),
         [dispatch],
     );
 
     /* ----------------- */
-    /* Login Redux Utils */
+    /* Report Redux Utils */
     /* ----------------- */
 
     return {
@@ -97,8 +137,13 @@ export default function useReportState() {
         setImage2,
         setImage3,
         setCategory,
-        setProcess,
         setAcceptTerm,
-        callReportApi,
+        setEmpathy,
+        setSupport,
+        callWriteReportApi,
+        callViewReportApi,
+        callReportListApi,
+        callEmpathyApi,
+        callSupportApi,
     };
 }

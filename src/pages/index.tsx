@@ -1,3 +1,4 @@
+export { default as Detail } from './Detail';
 export { default as Join } from './Join';
 export { default as List } from './List';
 export { default as Loading } from './Loading';

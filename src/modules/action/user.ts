@@ -4,6 +4,7 @@ import { ServerError } from '../apiHandler';
 
 const SET_USERNAME = 'user/SET_USERNAME'; // Username 값 설정
 const SET_EMAIL = 'user/SET_EMAIL'; // Email 값 설정
+const SET_EMAIL_CHECK = 'user/SET_EMAIL_CHECK'; // Email 값 설정
 const SET_PASSWORD = 'user/SET_PASSWORD'; // Password 값 설정
 const SET_PASSWORD_CHK = 'user/SET_PASSWORD_CHK'; // Password 확인 값 설정
 const SET_BIRTH = 'user/SET_BIRTH'; // Birth 값 설정
@@ -20,6 +21,7 @@ const CALL_USER_API = 'join/USER_API'; // API서버에 회원가입 요청
 
 const setUserName = createAction(SET_USERNAME)<string>();
 const setEmail = createAction(SET_EMAIL)<string>();
+const setEmailCheck = createAction(SET_EMAIL_CHECK)<boolean>();
 const setPassword = createAction(SET_PASSWORD)<string>();
 const setPasswordCheck = createAction(SET_PASSWORD_CHK)<string>();
 const setBirth = createAction(SET_BIRTH)<string>();
@@ -37,6 +39,7 @@ const callUserApi = createAction(CALL_USER_API)();
 export const userType = {
     SET_USERNAME,
     SET_EMAIL,
+    SET_EMAIL_CHECK,
     SET_PASSWORD,
     SET_PASSWORD_CHK,
     SET_BIRTH,
@@ -54,6 +57,7 @@ export const userType = {
 export const userAction = {
     setUserName,
     setEmail,
+    setEmailCheck,
     setPassword,
     setPasswordCheck,
     setBirth,
@@ -70,6 +74,7 @@ export const userAction = {
 
 export type SetUserName = ActionType<typeof setUserName>;
 export type SetEmail = ActionType<typeof setEmail>;
+export type SetEmailCheck = ActionType<typeof setEmailCheck>;
 export type SetPassword = ActionType<typeof setPassword>;
 export type SetPasswordCheck = ActionType<typeof setPasswordCheck>;
 export type SetBirth = ActionType<typeof setBirth>;

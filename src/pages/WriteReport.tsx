@@ -3,6 +3,8 @@ import { Helmet } from 'react-helmet-async';
 import Term from '../components/Term';
 import { useReportState, useAppState } from '../modules/hook';
 import PATH from '../constants/path';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 export default function WriteReport(): JSX.Element {
     const {
@@ -13,9 +15,10 @@ export default function WriteReport(): JSX.Element {
         setImage2,
         setImage3,
         setCategory,
-        callReportApi,
+        callWriteReportApi,
     } = useReportState();
 
+    console.log(reportState);
     const { state: appState, showErrorMessage } = useAppState();
 
     /**
@@ -96,41 +99,28 @@ export default function WriteReport(): JSX.Element {
             reportState.title &&
                 reportState.content &&
                 reportState.category &&
-                reportState.process,
+                reportState.accept_term,
         );
     }, [
         reportState.title,
         reportState.content,
         reportState.category,
-        reportState.process,
+        reportState.accept_term,
     ]);
-    const redirectMain = useCallback(() => {
-        document.location.href = PATH.main;
-    }, [history]);
+
     return (
         <>
             <Helmet>
                 <title>신고</title>
             </Helmet>
-            <div className="header-container">
-                <img
-                    alt="dream-logo-white"
-                    srcSet="/image/dream-logo-white.png"
-                    height="70px"
-                    onClick={redirectMain}
-                />
-            </div>
+            <Header />
             <div className="write-container">
                 <div className="write-title">신고하기</div>
                 <div className="write-img">
                     <p>신고 등록</p>
                     <p>추천 진행 중</p>
                     <p>추천 종료</p>
-                    <img
-                        srcSet="/image/write-line.png"
-                        height="70px"
-                        onClick={redirectMain}
-                    />
+                    <img srcSet="/image/report-line.png" height="10px" />
                 </div>
                 <div className="write-box1">
                     <table>
@@ -159,7 +149,7 @@ export default function WriteReport(): JSX.Element {
                                     value={reportState.category}
                                 >
                                     <option value="">선택</option>
-                                    <option value="확교폭력">학교폭력</option>
+                                    <option value="학교폭력">학교폭력</option>
                                     <option value="가정폭력">가정폭력</option>
                                 </select>
                             </td>
@@ -230,7 +220,7 @@ export default function WriteReport(): JSX.Element {
                                 <button
                                     className="agree_button"
                                     type="button"
-                                    onClick={callReportApi}
+                                    onClick={callWriteReportApi}
                                     disabled={!activateButton}
                                 >
                                     <Term />
@@ -260,9 +250,7 @@ export default function WriteReport(): JSX.Element {
                     </table>
                 </div>
             </div>
-            <div className="footer-container">
-                COPYRIGHT (C) Team Dream Hi All Rights Reserved.
-            </div>
+            <Footer />
         </>
     );
 }

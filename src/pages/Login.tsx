@@ -50,13 +50,6 @@ export default function Login({ history }: RouteChildrenProps): JSX.Element {
     );
 
     /**
-     * @description ID와 Password 값이 입력되면 버튼을 홯성화합니다.
-     */
-    const activateButton = useMemo(() => {
-        return Boolean(userState.email && userState.password);
-    }, [userState.email, userState.password]);
-
-    /**
      * @description Enter키를 눌러도 로그인이 됩니다.
      */
     const loginEnterFunc = (event: React.KeyboardEvent<HTMLDivElement>) => {
@@ -64,58 +57,47 @@ export default function Login({ history }: RouteChildrenProps): JSX.Element {
     };
 
     return (
-        <>
+        <div className="login-container">
             <Helmet>
                 <title>로그인</title>
             </Helmet>
-            <div className="login-container">
-                <div className="login-box1">
-                    <div className="login-logo1">
-                        <img
-                            alt="dream-logo-white"
-                            srcSet="/image/dream-logo.png"
-                            height="230px"
+            <div className="login-form-wrapper">
+                <div className="login-form">
+                    <p className="title">로그인</p>
+                    <div className="login-input-wrapper">
+                        <p>이메일</p>
+                        <input
+                            className="field email"
+                            placeholder="이메일"
+                            type="text"
+                            onChange={onChangeEmailValue}
+                            value={userState.email}
                         />
                     </div>
-                    <div className="login-box2">
-                        <div className="login-box2-login-img">
-                            <div className="img1">로그인</div>
-                        </div>
-                        <div className="login-box2-login-form">
-                            <p>이메일</p>
-                            <input
-                                className="field email"
-                                placeholder="이메일"
-                                type="text"
-                                onChange={onChangeEmailValue}
-                                value={userState.email}
-                            />
-                            <p>비밀번호</p>
-                            <input
-                                className="field pw"
-                                placeholder="패스워드"
-                                type="password"
-                                onChange={onChangePasswordValue}
-                                value={userState.password}
-                                onKeyPress={loginEnterFunc}
-                            />
-                            <div className="chk_keep_login">
-                                <input type="checkbox" />
-                                <span> 로그인 유지</span>
-                            </div>
-                            <button
-                                className="btn_login"
-                                type="button"
-                                onClick={callLoginApi}
-                                disabled={!activateButton}
-                            >
-                                로그인
-                            </button>
-                            <hr></hr>
-                        </div>
+                    <div className="login-input-wrapper">
+                        <p>비밀번호</p>
+                        <input
+                            className="field pw"
+                            placeholder="패스워드"
+                            type="password"
+                            onChange={onChangePasswordValue}
+                            value={userState.password}
+                            onKeyPress={loginEnterFunc}
+                        />
                     </div>
+                    <div className="chk-keep-login">
+                        <input type="checkbox" />
+                        <span> 로그인 유지</span>
+                    </div>
+                    <button
+                        className="btn-login"
+                        type="button"
+                        onClick={callLoginApi}
+                    >
+                        로그인
+                    </button>
                 </div>
             </div>
-        </>
+        </div>
     );
 }

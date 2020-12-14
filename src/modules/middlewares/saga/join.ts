@@ -19,8 +19,13 @@ function* callEmailCheckApi$() {
         try {
             yield put(appAction.setLoading()); // App을 Loading 상태로 만듭니다.
 
-            yield call(emailCheckHandler, data.email);
-            console.log('다녀왔음', yield call(emailCheckHandler, data.email));
+            const duplicate = yield call(emailCheckHandler, data.email);
+
+            yield put(userAction.setEmailCheck(duplicate));
+            if (duplicate) {
+                alert('이미 사용중인 이메일 입니다');
+                yield put(userAction.setEmail(''));
+            }
 
             yield put(appAction.releaseLoading()); // Loading 상태를 헤제합니다.
         } catch (error) {
@@ -49,7 +54,7 @@ function* callJoinApi$() {
         try {
             yield put(appAction.setLoading()); // App을 Loading 상태로 만듭니다.
 
-            const { token } = yield call(
+            yield call(
                 joinHandler,
                 data.name,
                 data.school,

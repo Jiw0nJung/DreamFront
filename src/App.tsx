@@ -18,6 +18,7 @@ function App(): JSX.Element {
                     <Route path={PATH.list} component={pages.List} />
                     <Route path={PATH.login} component={pages.Login} />
                     <Route path={PATH.mypage} component={pages.MyPage} />
+                    <Route path={PATH.reportdetail} component={pages.Detail} />
                     <Route path={PATH.report} component={pages.Report} />
                     <Route
                         path={PATH.writereport}
